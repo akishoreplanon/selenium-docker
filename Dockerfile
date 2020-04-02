@@ -3,7 +3,7 @@ FROM openjdk:8u191-jre-alpine3.8
 RUN apk add curl jq
 
 # Workspace
-WORKDIR  /home/kishore/docker/
+WORKDIR  /usr/share/udemy/
 
 # ADD .jar under target from host
 # into this image
