@@ -25,8 +25,18 @@ public class BaseTest {
         if(System.getProperty("BROWSER") != null &&
                 System.getProperty("BROWSER").equalsIgnoreCase("firefox")){
             dc = DesiredCapabilities.firefox();
-        }else{
+        }else if(System.getProperty("BROWSER") != null &&
+                System.getProperty("BROWSER").equalsIgnoreCase("chrome")){
             dc = DesiredCapabilities.chrome();
+        }else if(System.getProperty("BROWSER") != null &&
+                System.getProperty("BROWSER").equalsIgnoreCase("android")){
+            dc = DesiredCapabilities.android();
+            dc.setCapability("deviceName", "");
+        	dc.setCapability("platformName", "Android");
+    		dc.setCapability("appPackage", "com.android.calculator2");
+    		dc.setCapability("appActivity", "com.android.calculator2.Calculator");
+        }else {
+        	dc = DesiredCapabilities.chrome();
         }
 
         if(System.getProperty("HUB_HOST") != null){
@@ -38,7 +48,7 @@ public class BaseTest {
         String completeUrl = "http://" + host + ":4444/wd/hub";
         dc.setCapability("name", testName);
         this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
-    }
+    } 
 
     @AfterTest
     public void quitDriver(){

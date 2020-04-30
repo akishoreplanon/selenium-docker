@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="sample-apptest">
+    <test name="app-test-java">
+         <classes>
+             <class name="com.sampleapp.tests.AppTest"/>
+          </classes>
+     </test> <!-- Test -->
+</suite> <!-- Suite -->
